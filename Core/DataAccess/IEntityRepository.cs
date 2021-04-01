@@ -6,19 +6,16 @@ using System.Text;
 
 namespace Core.DataAccess
 {
-	//class: referans Tip
-	//IEntity : yanlızca IEntity interface i veya onu kullanan sınıflar olabilir.
-	//new() : new lenebilir olan (Yani interface olamaz)
-	public interface IEntityRepository<T> where T:class,IEntity,new() //Yukarıda açıklaması yazılan filtreleme işlemi sayesinde sadece veritabanı tabloları kullanılabilir olur.
-	{
-
-		/*List<T> GetAll(Expression<Func<T,bool>> filter=null);*/ // filtrelemek için bu komutu yaparız örnek-> id ye göre filtrele, isme göre filtrele
-		List<T> GetAll(Expression<Func<T, bool>> filter = null);
-		T Get(Expression<Func<T, bool>> filter);
-		void Add(T entity);
-		void Delete(T entity);
-		void Update(T entity);
-		List<T> GetAllByCategory(int categoryId);
-
-	}
+    //generic constraint
+    //class : referans tip
+    //IEntity : IEntity olabilir veya IEntity implemente eden bir nesne olabilir
+    //new() : new'lenebilir olmalı
+    public interface IEntityRepository<T> where T : class, IEntity, new()
+    {
+        List<T> GetAll(Expression<Func<T, bool>> filter = null);
+        T Get(Expression<Func<T, bool>> filter);
+        void Add(T entity);
+        void Update(T entity);
+        void Delete(T entity);
+    }
 }

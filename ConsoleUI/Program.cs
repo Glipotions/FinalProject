@@ -40,12 +40,12 @@ namespace ConsoleUI
 
 		private static void ProductTest()
 		{
-			ProductManager productManager = new ProductManager(new EfProductDal(),new CategoryManager(new EfCategoryDal()));
+			//ProductManager productManager = new ProductManager(new EfProductDal(),new CategoryManager(new EfCategoryDal()));
 
-			foreach (var product in productManager.GetAllByUnitPrice(50, 120).Data)
-			{
-				Console.WriteLine(product.ProductName);
-			}
+			//foreach (var product in productManager.GetAllByUnitPrice(50, 120).Data)
+			//{
+			//	Console.WriteLine(product.ProductName);
+			//}
 		}
 	}
 }
